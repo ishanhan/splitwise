@@ -83,10 +83,13 @@ func (e *ExpenseManager) ShowUserBalances(user dto.User) {
 			continue
 		}
 		amount := e.BalanceSheet[user.ID][otherUser.ID]
+		if amount == 0 {
+			continue
+		}
 		if amount < 0 {
-			fmt.Printf("%s owes %s: %f \n", otherUser.Name, user.Name, -1*amount)
+			fmt.Printf("%s owes %s: %f \n", user.Name, otherUser.Name, -1*amount)
 		} else {
-			fmt.Printf("%s gets back %s: %f \n", user.Name, otherUser.Name, amount)
+			fmt.Printf("%s gets back from %s: %f \n", user.Name, otherUser.Name, amount)
 		}
 	}
 }
@@ -110,7 +113,7 @@ func (e *ExpenseManager) ShowBalances() {
 		} else if totalAmount < 0 {
 			fmt.Printf("%s owes %f \n", user.Name, -1*totalAmount)
 		} else {
-			fmt.Printf("%s gets back %f \n", user.Name, totalAmount)
+			fmt.Printf("%s gets back from %f \n", user.Name, totalAmount)
 		}
 
 	}

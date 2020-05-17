@@ -21,7 +21,9 @@ const (
 	expense = "EXPENSE"
 )
 
-//EXPENSE <user-id-of-person-who-paid> <no-of-users> <space-separated-list-of-users> <EQUAL/EXACT/PERCENT> <space-separated-values-in-case-of-non-equal>
+//EXPENSE <user-id-of-person-who-paid> <no-of-users> <comma-separated-list-of-users> <EQUAL/EXACT/PERCENT> <comma-separated-values-in-case-of-non-equal>
+// SHOW <user-id-of-person>
+// SHOW
 
 func main() {
 	expenseManager := &manager.ExpenseManager{}
@@ -35,10 +37,13 @@ func initBalanceSheet(e *manager.ExpenseManager) {
 }
 
 func addUser(e *manager.ExpenseManager) {
-	e.AddUser("1", "Ishan", "xyz1@gmail.com", "123")
-	e.AddUser("2", "Sidhima", "xyz2@gmail.com", "123")
-	e.AddUser("3", "Pritika", "xyz3@gmail.com", "123")
-	e.AddUser("4", "Anurag", "xyz4@gmail.com", "123")
+	e.AddUser("1", "Alice", "xyz1@gmail.com", "123")
+	e.AddUser("2", "Bob", "xyz2@gmail.com", "123")
+	e.AddUser("3", "Charlie", "xyz3@gmail.com", "123")
+	e.AddUser("4", "David", "xyz4@gmail.com", "123")
+	e.AddUser("5", "Ema", "xyz4@gmail.com", "123")
+	e.AddUser("6", "Fred", "xyz4@gmail.com", "123")
+	e.AddUser("7", "Gabe", "xyz4@gmail.com", "123")
 
 }
 
